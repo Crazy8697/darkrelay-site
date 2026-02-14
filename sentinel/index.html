@@ -4,8 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sentinel — DarkRelay</title>
-  <meta name="description" content="DarkRelay Sentinel portal — redirects to Home Assistant remote access." />
-  <meta http-equiv="refresh" content="2;url=https://sentinel.darkrelay.net" />
+  <meta name="description" content="DarkRelay Sentinel portal — manual entry to Home Assistant remote access." />
 
   <style>
     :root{
@@ -88,10 +87,9 @@
       margin-top:14px;
       font-size:12px;
       opacity:.9;
+      color:var(--muted);
     }
-    code{
-      color:var(--text);
-    }
+    code{color:var(--text)}
   </style>
 </head>
 
@@ -99,15 +97,15 @@
   <div class="card">
     <h1>SENTINEL</h1>
     <p>Remote ingress to Home Assistant.</p>
-    <p>Redirecting to <code>sentinel.darkrelay.net</code>…</p>
+    <p>Target: <code>https://sentinel.darkrelay.net</code></p>
 
     <div class="actions">
-      <a href="https://sentinel.darkrelay.net"><span class="dot"></span> Enter Sentinel Now</a>
-      <a href="/"><span class="dot"></span> Return to DarkRelay</a>
+      <a href="https://sentinel.darkrelay.net"><span class="dot"></span> Enter Sentinel</a>
+      <a href="/"><span class="dot"></span> Return Home</a>
     </div>
 
     <p class="small">
-      If this loops or fails: try a different browser profile or disable aggressive tracking protection.
+      If login loops: try Firefox, or temporarily relax strict tracking protection for the HA domain.
     </p>
   </div>
 </body>
