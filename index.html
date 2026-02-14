@@ -4,200 +4,251 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>darkrelay.net</title>
-  <meta name="description" content="Dark Relay — signal established." />
+  <meta name="description" content="DarkRelay — secure, independent, weirdly calm." />
+
   <style>
     :root{
-      --bg:#0b0d10;
-      --fg:#e6e8ee;
-      --muted:#b9c0d0;
-      --line:#222a36;
-      --glow: rgba(154, 209, 255, 0.18);
+      --bg:#0b0f14;
+      --panel:#101822;
+      --panel2:#0f1620;
+      --text:#d4d7dd;
+      --muted:#8fa3b8;
+      --accent:#66fcf1;
+      --accent2:#45a29e;
+      --line:#1f2b3a;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
     }
+    *{box-sizing:border-box}
     body{
-      margin:0; min-height:100vh; display:grid; place-items:center;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      background: radial-gradient(1200px 800px at 40% 20%, rgba(60,90,140,0.18), transparent 60%),
-                  radial-gradient(900px 700px at 70% 80%, rgba(120,80,160,0.14), transparent 55%),
-                  var(--bg);
-      color:var(--fg);
-    }
-    .card{
-      width:min(760px, calc(100% - 32px));
-      padding:34px 30px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(255,255,255,0.02);
-      box-shadow: 0 12px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02) inset;
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 220px at 30% 0%, var(--glow), transparent 60%);
-      pointer-events:none;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size:30px;
-      letter-spacing:0.6px;
-    }
-    .statusline{
-      display:flex;
-      gap:10px;
-      align-items:baseline;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-    .label{
+      margin:0;
+      background:radial-gradient(900px 500px at 20% 0%, rgba(102,252,241,.10), transparent 55%),
+                 radial-gradient(900px 500px at 80% 100%, rgba(69,162,158,.10), transparent 55%),
+                 var(--bg);
+      color:var(--text);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 16px;
+    }
+    .wrap{
+      width:min(980px, 100%);
+      display:grid;
+      gap:18px;
+    }
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 20px;
+      background:linear-gradient(180deg, rgba(16,24,34,.95), rgba(15,22,32,.9));
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:.08em;
+      color:var(--accent);
+    }
+    .brand .sub{
       color:var(--muted);
       font-size:13px;
-      letter-spacing:0.2px;
-      opacity:0.9;
+      line-height:1.35;
     }
-    #status{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size:16px;
-      color:var(--fg);
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    .cursor{
-      display:inline-block;
-      width:10px;
-      margin-left:2px;
-      opacity:0.9;
-      animation: blink 1s steps(2, end) infinite;
-    }
-    @keyframes blink { 50% { opacity:0; } }
-    .links{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:18px;
-    }
-    a.pill, .pill{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size:13px;
-      padding:8px 12px;
-      border:1px solid #2a3140;
-      border-radius:999px;
-      color:#9ad1ff;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(31,43,58,.35);
+      color:var(--accent);
       text-decoration:none;
-      background:rgba(255,255,255,0.015);
+      font-size:13px;
+      transition:transform .06s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    a.pill:hover{ text-decoration:underline; }
-    .pill.static{ color:var(--muted); }
+    .btn:hover{
+      background:rgba(69,162,158,.16);
+      border-color:rgba(102,252,241,.35);
+      transform:translateY(-1px);
+    }
+    .btn:active{transform:translateY(0)}
+    .btn .dot{
+      width:8px;height:8px;border-radius:99px;background:var(--accent2);
+      box-shadow:0 0 0 3px rgba(69,162,158,.15);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      header{flex-direction:column}
+      .nav{justify-content:flex-start}
+    }
+
+    .card{
+      padding:18px 20px;
+      background:linear-gradient(180deg, rgba(16,24,34,.95), rgba(15,22,32,.9));
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{
+      margin:0 0 10px 0;
+      font-size:14px;
+      color:var(--muted);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .status{
+      font-size:18px;
+      line-height:1.35;
+      color:var(--text);
+    }
+    .status .label{
+      color:var(--muted);
+      font-size:12px;
+      display:block;
+      margin-top:8px;
+    }
+
+    .kv{
+      display:grid;
+      gap:10px;
+      margin-top:4px;
+    }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(31,43,58,.8);
+      background:rgba(0,0,0,.12);
+    }
+    .row .k{color:var(--muted); font-size:12px;}
+    .row .v{color:var(--text); font-size:13px;}
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      padding:10px 0 0;
+    }
+    .tiny{
+      opacity:.9;
+    }
   </style>
 </head>
+
 <body>
-  <main class="card">
-    <h1>darkrelay.net</h1>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>DARKRELAY</h1>
+        <div class="sub">
+          Secure-ish. Independent. Mildly ominous.<br />
+          <span class="tiny">A front door to services, not a corporate theme park.</span>
+        </div>
+      </div>
 
-    <div class="statusline">
-      <span class="label">status:</span>
-      <span id="status">initializing…</span><span class="cursor">▌</span>
+      <nav class="nav" aria-label="Site links">
+        <a class="btn" href="/mail/"><span class="dot"></span> Webmail</a>
+        <!-- Add more as you stand stuff up -->
+        <!-- <a class="btn" href="https://sentinel.darkrelay.net"><span class="dot"></span> Sentinel</a> -->
+        <!-- <a class="btn" href="/status/"><span class="dot"></span> Status</a> -->
+      </nav>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>System Status</h2>
+        <div class="status" id="statusText">Booting…</div>
+        <span class="label" id="statusMeta"></span>
+      </section>
+
+      <aside class="card">
+        <h2>Nodes</h2>
+        <div class="kv">
+          <div class="row">
+            <div class="k">Domain</div>
+            <div class="v">darkrelay.net</div>
+          </div>
+          <div class="row">
+            <div class="k">Webmail</div>
+            <div class="v">/mail/ (Proton-backed)</div>
+          </div>
+          <div class="row">
+            <div class="k">Remote</div>
+            <div class="v">sentinel.darkrelay.net</div>
+          </div>
+          <div class="row">
+            <div class="k">Mood</div>
+            <div class="v">unreasonably operational</div>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <div class="links">
-      <span class="pill static">node: darkrelay</span>
-      <a class="pill" href="https://github.com/Crazy8697/darkrelay-site" rel="noopener">source</a>
-      <!-- later: <a class="pill" href="https://sentinel.darkrelay.net" rel="noopener">sentinel</a> -->
-    </div>
-  </main>
+    <footer>
+      © <span id="year"></span> DarkRelay — No gods, no masters, no telemetry.
+    </footer>
+  </div>
 
   <script>
-    // --- CONFIG ---
-    const MODE = "random";     // "random" or "cycle"
-    const HOLD_MS = 2400;      // time each message stays fully visible
-    const TYPE_MS = 14;        // typing speed (lower = faster)
-    const ERASE_MS = 8;        // erase speed
-    const JITTER_MS = 350;     // random +/- hold jitter
-    // ---------------
-
-    const messages = [
-      "signal established.",
-      "relay active.",
-      "node online.",
-      "routing packets through the void.",
-      "awaiting instructions.",
-      "sensors nominal.",
-      "entropy contained (for now).",
-      "handshake complete.",
-      "uplink stable.",
-      "downlink stable.",
-      "latency acceptable.",
-      "no gods. no masters. no google.",
-      "infrastructure in motion.",
-      "quietly refusing telemetry.",
-      "privacy budget: intact.",
-      "cache warm.",
-      "cdn engaged.",
-      "ssl sealed.",
-      "dns authoritative.",
-      "systems green.",
-      "nothing to see here.",
-      "do not poke the firewall.",
-      "operational. mildly ominous.",
-      "this page is a decoy. (mostly.)",
-      "hello, traveler.",
-      "maintaining plausible deniability.",
-      "conducting harmless experiments.",
-      "the lights blink in patterns.",
-      "if you can read this, the relay worked.",
-      "all channels monitored. none logged.",
-      "safety interlocks enabled.",
-      "power is cheap; attention is expensive.",
-      "trust no vendor.",
-      "compiling intent.",
-      "standing by."
+    // Feel free to add/remove as many as you want.
+    const statusMessages = [
+      "SENTINEL: ONLINE. Watching the watchers.",
+      "Mail routing: STABLE. Spam: mostly defeated.",
+      "Encryption: ON. Paranoia: justified.",
+      "Telemetry: none. Vibes: immaculate.",
+      "Routing packets like it’s a sacred ritual.",
+      "If this page is up, the gremlins lost.",
+      "DarkRelay: quietly refusing to be normal.",
+      "Status: GREEN. Coffee: REQUIRED.",
+      "Everything is fine (this is a lie).",
+      "Awaiting further directives…"
     ];
 
-    const el = document.getElementById("status");
-
-    // deterministic cycle index
-    let idx = Math.floor(Math.random() * messages.length);
-    let last = "";
-
-    function pickNext() {
-      if (MODE === "cycle") {
-        idx = (idx + 1) % messages.length;
-        return messages[idx];
-      }
-      // random, but avoid immediate repeat
-      let next = last;
-      while (next === last) next = messages[Math.floor(Math.random() * messages.length)];
-      return next;
+    function pick(arr){
+      return arr[Math.floor(Math.random() * arr.length)];
     }
 
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-    async function typeText(text) {
-      el.textContent = "";
-      for (let i = 0; i < text.length; i++) {
-        el.textContent += text[i];
-        await sleep(TYPE_MS);
-      }
+    function setStatus(){
+      const s = pick(statusMessages);
+      const now = new Date();
+      document.getElementById("statusText").textContent = s;
+      document.getElementById("statusMeta").textContent =
+        "Last update: " + now.toLocaleString();
     }
 
-    async function eraseText() {
-      const t = el.textContent;
-      for (let i = t.length; i >= 0; i--) {
-        el.textContent = t.slice(0, i);
-        await sleep(ERASE_MS);
-      }
-    }
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    async function loop() {
-      while (true) {
-        const msg = pickNext();
-        last = msg;
-        await typeText(msg);
-        const jitter = (Math.random() * 2 - 1) * JITTER_MS;
-        await sleep(Math.max(400, HOLD_MS + jitter));
-        await eraseText();
-        await sleep(120);
-      }
-    }
-
-    loop();
+    setStatus();
+    // Rotate every 8 seconds
+    setInterval(setStatus, 8000);
   </script>
 </body>
 </html>
