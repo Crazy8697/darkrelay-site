@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sentinel — DarkRelay</title>
+  <meta name="description" content="DarkRelay Sentinel portal — redirects to Home Assistant remote access." />
+  <meta http-equiv="refresh" content="2;url=https://sentinel.darkrelay.net" />
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#101822;
+      --text:#d4d7dd;
+      --muted:#8fa3b8;
+      --accent:#66fcf1;
+      --accent2:#45a29e;
+      --line:#1f2b3a;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 16px;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(102,252,241,.10), transparent 55%),
+        radial-gradient(900px 500px at 80% 100%, rgba(69,162,158,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+    .card{
+      width:min(760px, 100%);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(16,24,34,.95), rgba(15,22,32,.9));
+      border-radius:16px;
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+    }
+    h1{
+      margin:0 0 8px 0;
+      color:var(--accent);
+      letter-spacing:.08em;
+      font-size:18px;
+    }
+    p{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:13px;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(31,43,58,.35);
+      color:var(--accent);
+      text-decoration:none;
+      font-size:13px;
+      transition:transform .06s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    a:hover{
+      background:rgba(69,162,158,.16);
+      border-color:rgba(102,252,241,.35);
+      transform:translateY(-1px);
+    }
+    a:active{transform:translateY(0)}
+    .dot{
+      width:8px;height:8px;border-radius:99px;background:var(--accent2);
+      box-shadow:0 0 0 3px rgba(69,162,158,.15);
+    }
+    .small{
+      margin-top:14px;
+      font-size:12px;
+      opacity:.9;
+    }
+    code{
+      color:var(--text);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>SENTINEL</h1>
+    <p>Remote ingress to Home Assistant.</p>
+    <p>Redirecting to <code>sentinel.darkrelay.net</code>…</p>
+
+    <div class="actions">
+      <a href="https://sentinel.darkrelay.net"><span class="dot"></span> Enter Sentinel Now</a>
+      <a href="/"><span class="dot"></span> Return to DarkRelay</a>
+    </div>
+
+    <p class="small">
+      If this loops or fails: try a different browser profile or disable aggressive tracking protection.
+    </p>
+  </div>
+</body>
+</html>
