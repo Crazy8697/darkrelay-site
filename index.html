@@ -18,7 +18,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
       background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.18), transparent 60%),
                   radial-gradient(1000px 600px at 110% 10%, rgba(52,211,153,.14), transparent 55%),
                   var(--bg);
@@ -64,12 +64,10 @@
     }
     @media (min-width: 720px){
       .card.half{ grid-column: span 6; }
-      .card.third{ grid-column: span 4; }
     }
     .card h2{
       margin:0 0 6px;
       font-size: 16px;
-      color: var(--text);
       display:flex;
       align-items:center;
       gap:10px;
@@ -115,10 +113,6 @@
       font-weight: 650;
       letter-spacing:.2px;
     }
-    .btn .sub{
-      font-size: 12px;
-      color: var(--muted);
-    }
     .btn .arrow{
       color: var(--muted);
       font-size: 14px;
@@ -129,15 +123,6 @@
       font-size: 12.5px;
       color: var(--muted);
       line-height: 1.4;
-    }
-    code.k{
-      padding: 1px 6px;
-      border-radius: 8px;
-      border: 1px solid rgba(36,50,68,.9);
-      background: rgba(0,0,0,.25);
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
     }
     footer{
       margin-top: 26px;
@@ -163,15 +148,16 @@
       <section class="card half">
         <h2>Scavenger Inventory <span class="pill">LAN</span></h2>
         <p class="desc">Parts + tools tracker. Works on your Wi-Fi. Fails gracefully off-LAN (as intended).</p>
+
         <a class="btn" href="http://10.42.69.69:5055/" target="_blank" rel="noopener noreferrer">
           <div class="left">
             <div class="title">Open Inventory UI</div>
-            <div class="sub">http://10.42.69.69:5055/</div>
           </div>
           <div class="arrow">↗</div>
         </a>
+
         <div class="note">
-          Tip: If you later give this a local DNS name (e.g. <code class="k">inventory.lan</code>), swap the URL above and you’re golden.
+          Tip: If you later give this a local DNS name (e.g. <code>inventory.lan</code>), swap the URL above and you’re golden.
         </div>
       </section>
 
@@ -182,7 +168,6 @@
         <a class="btn" href="./mail/">
           <div class="left">
             <div class="title">Mail</div>
-            <div class="sub">./mail/</div>
           </div>
           <div class="arrow">→</div>
         </a>
@@ -192,20 +177,15 @@
         <a class="btn" href="./sentinel/">
           <div class="left">
             <div class="title">Sentinel</div>
-            <div class="sub">./sentinel/</div>
           </div>
           <div class="arrow">→</div>
         </a>
-
-        <div class="note">
-          Add more buttons by copying a <code class="k">a.btn</code> block. Static pages don’t have to be ugly to be honest.
-        </div>
       </section>
 
       <section class="card">
         <h2>Status</h2>
         <p class="desc">
-          Inventory is intentionally <b>LAN-only</b>. No reverse proxy. No public exposure. No accidental “why is Shodan looking at my toaster?”
+          Inventory is intentionally <b>LAN-only</b>. No reverse proxy. No public exposure.
         </p>
       </section>
     </div>
