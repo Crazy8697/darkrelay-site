@@ -4,216 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>darkrelay.net</title>
-  <meta name="description" content="darkrelay.net — local-first tools and links" />
   <style>
-    :root{
-      --bg:#0b0f14;
-      --panel:#111826;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --border:#243244;
-      --accent:#60a5fa;
-      --accent2:#34d399;
-    }
-    *{box-sizing:border-box}
-    body{
+    body {
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.18), transparent 60%),
-                  radial-gradient(1000px 600px at 110% 10%, rgba(52,211,153,.14), transparent 55%),
-                  var(--bg);
-      color:var(--text);
+      font-family: system-ui, sans-serif;
+      background:#0b0f14;
+      color:#e5e7eb;
     }
-    .wrap{
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 48px 18px 64px;
+    .wrap {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
     }
-    header{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:16px;
-      padding: 10px 0 26px;
-      border-bottom: 1px solid rgba(36,50,68,.65);
-    }
-    h1{
-      margin:0;
-      font-size: 28px;
-      letter-spacing:.2px;
-    }
-    .tag{
-      color:var(--muted);
-      font-size: 13px;
-      white-space:nowrap;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 22px;
-    }
-    .card{
-      grid-column: span 12;
-      background: rgba(17,24,38,.72);
-      border: 1px solid rgba(36,50,68,.75);
-      border-radius: 16px;
+    h1 { margin-bottom: 40px; }
+    .btn {
+      display:block;
       padding: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.28);
-      backdrop-filter: blur(6px);
-    }
-    @media (min-width: 720px){
-      .card.half{ grid-column: span 6; }
-      .card.third{ grid-column: span 4; }
-    }
-    .card h2{
-      margin:0 0 6px;
-      font-size: 16px;
-      color: var(--text);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .pill{
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(36,50,68,.9);
-      color: var(--muted);
-    }
-    .desc{
-      margin:0 0 12px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.35;
-    }
-    a.btn{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(36,50,68,.95);
-      background: rgba(11,15,20,.65);
-      color: var(--text);
+      border-radius: 10px;
+      background:#111826;
+      border:1px solid #243244;
+      color:#e5e7eb;
       text-decoration:none;
-      transition: transform .06s ease, border-color .12s ease, background .12s ease;
-      user-select:none;
+      margin-bottom: 14px;
     }
-    a.btn:hover{
-      border-color: rgba(96,165,250,.65);
-      background: rgba(11,15,20,.82);
-      transform: translateY(-1px);
-    }
-    .btn .left{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-    .btn .title{
-      font-weight: 650;
-      letter-spacing:.2px;
-    }
-    .btn .sub{
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .btn .arrow{
-      color: var(--muted);
-      font-size: 14px;
-      padding-left: 8px;
-    }
-    .note{
-      margin-top: 16px;
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    code.k{
-      padding: 1px 6px;
-      border-radius: 8px;
-      border: 1px solid rgba(36,50,68,.9);
-      background: rgba(0,0,0,.25);
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-    }
-    footer{
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(36,50,68,.65);
-      color: var(--muted);
-      font-size: 12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+    .btn:hover {
+      border-color:#60a5fa;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>darkrelay.net</h1>
-      <div class="tag">local-first • low-drama • useful buttons</div>
-    </header>
+    <h1>darkrelay.net</h1>
 
-    <div class="grid">
-      <section class="card half">
-        <h2>Scavenger Inventory <span class="pill">LAN</span></h2>
-        <p class="desc">Parts + tools tracker. Works on your Wi-Fi. Fails gracefully off-LAN (as intended).</p>
-        <a class="btn" href="http://10.42.69.69:5055/" target="_blank" rel="noopener noreferrer">
-          <div class="left">
-            <div class="title">Open Inventory UI</div>
-            <div class="sub">http://10.42.69.69:5055/</div>
-          </div>
-          <div class="arrow">↗</div>
-        </a>
-        <div class="note">
-          Tip: If you later give this a local DNS name (e.g. <code class="k">inventory.lan</code>), swap the URL above and you’re golden.
-        </div>
-      </section>
+    <a class="btn" href="/inventory/">
+      Scavenger Inventory
+    </a>
 
-      <section class="card half">
-        <h2>Services</h2>
-        <p class="desc">Static links into this repo’s subfolders.</p>
+    <a class="btn" href="./mail/">
+      Mail
+    </a>
 
-        <a class="btn" href="./mail/">
-          <div class="left">
-            <div class="title">Mail</div>
-            <div class="sub">./mail/</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-
-        <div style="height:10px"></div>
-
-        <a class="btn" href="./sentinel/">
-          <div class="left">
-            <div class="title">Sentinel</div>
-            <div class="sub">./sentinel/</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-
-        <div class="note">
-          Add more buttons by copying a <code class="k">a.btn</code> block. Static pages don’t have to be ugly to be honest.
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Status</h2>
-        <p class="desc">
-          Inventory is intentionally <b>LAN-only</b>. No reverse proxy. No public exposure. No accidental “why is Shodan looking at my toaster?”
-        </p>
-      </section>
-    </div>
-
-    <footer>
-      <div>© darkrelay.net</div>
-      <div>built to survive tired days</div>
-    </footer>
+    <a class="btn" href="./sentinel/">
+      Sentinel
+    </a>
   </div>
 </body>
 </html>
