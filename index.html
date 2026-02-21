@@ -149,7 +149,7 @@
         <h2>Scavenger Inventory <span class="pill">LAN</span></h2>
         <p class="desc">Parts + tools tracker. Private (LAN-only).</p>
 
-        <a class="btn" href="#" target="_blank" rel="noopener noreferrer">
+        <a class="btn inventory-link" href="#" target="_blank" rel="noopener noreferrer">
           <div class="left">
             <div class="title">Open Inventory UI</div>
           </div>
@@ -191,5 +191,16 @@
       <div>built to survive tired days</div>
     </footer>
   </div>
+  <script src="./local-links.js"></script>
+  <script>
+    (function () {
+      try {
+        if (window.DARKRELAY_LOCAL && window.DARKRELAY_LOCAL.scavengerInventoryUrl) {
+          var a = document.querySelector("a.btn.inventory-link");
+          if (a) a.setAttribute("href", window.DARKRELAY_LOCAL.scavengerInventoryUrl);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
